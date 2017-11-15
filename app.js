@@ -7,6 +7,7 @@ const app = express()
 const router = require('./config/router')
 
 // Set up middleware
+app.use(express.static('./client/build'));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/', router)

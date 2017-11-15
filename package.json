@@ -1,0 +1,8 @@
+{
+  "name": "dev-challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:nicktouchette/dev-challenge.git",
+  "author": "Nick Touchette <touchette@gmail.com>",
+  "license": "MIT"
+}

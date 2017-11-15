@@ -1,3 +1,8 @@
+# HOW TO RUN
+Clone from git
+yard or npm install
+yard or npm start
+
 # Developer Challenge
 Thanks for being interested in a job at Turner.  You will have 24 hours from receipt of this document to:
 

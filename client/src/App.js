@@ -1,25 +1,39 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import Search from './Search'
+import Detail from './Detail'
+import Titles from './Titles'
+import './App.css'
 
 class App extends Component {
-  state = {movies: []}
+  constructor(props) {
+    super(props)
+    this.state = { movies: [], detailId: null }
+  }
 
   componentDidMount() {
-    fetch('/movies')
+    this.updateMovies()
+  }
+
+  updateDetail = (e) => {
+    this.setState({ detailId: e.target.id })
+  }
+
+  updateMovies = (search) => {
+    const query = !search ? '/movies' : `/movies?action=search&value=${search}`
+    fetch(query)
       .then(res => res.json())
-      .then(movies => this.setState({ movies }));
+      .then(movies => this.setState({ movies }))
   }
 
   render() {
     return (
       <div className="App">
-        <h1>Movie Titles</h1>
-        {this.state.movies.map(movie =>
-          <div key={movie.id}>{movie.title_name}</div>
-        )}
+        <Titles movies={this.state.movies} updateDetail={this.updateDetail} />
+        <Search onSubmit={this.updateMovies}/>
+        <Detail id={this.state.detailId}/>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

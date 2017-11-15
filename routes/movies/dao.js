@@ -8,13 +8,13 @@ module.exports = class MoviesDAO {
 
         resolve(res.rows)
       })
-    });
-  };
+    })
+  }
 
   static getById(id) {
     return new Promise((resolve, reject) => {
       if (!id) {
-        return reject(new Error("id is invalid."));
+        return reject(new Error("id is invalid."))
       }
 
       db.query('SELECT * FROM title WHERE id::bigint = $1', [id], (err, res) => {
@@ -22,7 +22,7 @@ module.exports = class MoviesDAO {
 
         resolve(res.rows)
       })
-    });
+    })
   }
 
   static search(name) {
@@ -40,6 +40,6 @@ module.exports = class MoviesDAO {
           return resolve([])
         }
       })
-    });
+    })
   }
 }

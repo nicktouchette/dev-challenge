@@ -12,12 +12,12 @@ class Search extends React.Component {
 
   handleClear = (event) => {
     this.setState({ value: '' })
-    this.props.onSubmit(null)
+    this.props.updateMovies()
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.onSubmit(this.state.value)
+    this.props.updateMovies(`/movies?action=search&value=${this.state.value}`)
   }
 
   render() {

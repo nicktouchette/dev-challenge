@@ -20,7 +20,7 @@ module.exports = class MoviesDAO {
       db.query('SELECT * FROM title WHERE id::bigint = $1', [id], (err, res) => {
         if (err) return reject(err)
 
-        resolve(res.rows)
+        resolve(res.rows[0])
       })
     })
   }

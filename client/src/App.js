@@ -7,7 +7,7 @@ import './App.css'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = { movies: [], detailId: null }
+    this.state = { movies: [], detail: {} }
   }
 
   componentDidMount() {
@@ -15,11 +15,12 @@ class App extends Component {
   }
 
   updateDetail = (e) => {
-    this.setState({ detailId: e.target.id })
+    fetch(`/movies/${e.target.id}`)
+      .then(res => res.json())
+      .then(detail => this.setState({ detail }))
   }
 
-  updateMovies = (search) => {
-    const query = !search ? '/movies' : `/movies?action=search&value=${search}`
+  updateMovies = (query = '/movies') => {
     fetch(query)
       .then(res => res.json())
       .then(movies => this.setState({ movies }))
@@ -29,8 +30,8 @@ class App extends Component {
     return (
       <div className="App">
         <Titles movies={this.state.movies} updateDetail={this.updateDetail} />
-        <Search onSubmit={this.updateMovies}/>
-        <Detail id={this.state.detailId}/>
+        <Search updateMovies={this.updateMovies} />
+        <Detail movie={this.state.detail}/>
       </div>
     )
   }

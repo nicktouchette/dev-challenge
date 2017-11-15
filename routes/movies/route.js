@@ -5,5 +5,9 @@ module.exports = class MoviesRoutes {
     router
       .route('/movies')
       .get(MoviesController.query)
+
+    router
+      .route('/movies/:id')
+      .get(MoviesController.getById)
   }
 }

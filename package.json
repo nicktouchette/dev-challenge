@@ -12,7 +12,7 @@
     "node": ">=8.2.1"
   },
   "scripts": {
-    "start": "node app.js'",
+    "start": "node app.js",
     "serve": "concurrently --kill-others 'node app.js' 'cd client && yarn start'",
     "livereload": "concurrently --kill-others 'nodemon app.js' 'cd client && yarn start'"
   },

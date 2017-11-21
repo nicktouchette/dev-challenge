@@ -1,7 +1,8 @@
 # HOW TO RUN
-Clone from git
-yard or npm install
-yard or npm start
+Clone from GIT  
+yarn or npm install  
+yarn or npm start  
+Visit localhost:8080
 
 # Developer Challenge
 Thanks for being interested in a job at Turner.  You will have 24 hours from receipt of this document to:

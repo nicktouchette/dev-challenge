@@ -1,7 +1,7 @@
 # HOW TO RUN
 Clone from GIT  
 yarn or npm install  
-yarn or npm start  
+yarn or npm serve  
 Visit localhost:8080
 
 # Developer Challenge
